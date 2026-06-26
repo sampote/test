@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自分のプロフィール | Yell for You</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand">Yell for You <span class="version">1.2</span></a>
+    <button class="btn-login">Login</button>
+  </div>
+  <div class="container">
+    <nav class="pill-nav">
+      <a href="profile.html" class="pill-item active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+        <span>自分</span>
+      </a>
+      <a href="company.html" class="pill-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+        <span>会社</span>
+      </a>
+      <a href="interview.html" class="pill-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M14 20c.3-2.4 2.2-4.2 4.5-4.5"/></svg>
+        <span>面接</span>
+      </a>
+      <a href="interview.html?lang=en" class="pill-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 8h7"/><path d="M8.5 5v3"/><path d="M5 5l3 8c1 2 2 3 4 3"/><path d="M13 20l4-10 4 10"/><path d="M14.5 17h5"/></svg>
+        <span>英語</span>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">STEP 01 / PROFILE</p>
+      <h1>自分のプロフィールを<br>入力<span class="dot">。</span></h1>
+      <p class="page-lead">入力した内容は、面接時の回答生成の素材として使われます。<br>具体的に書くほど、生成される回答が自然になります。</p>
+    </div>
+  </section>
+
+  <section class="form-section">
+    <div class="container">
+      <form id="profileForm" class="card-form">
+        <div class="form-group">
+          <label for="name">氏名</label>
+          <input type="text" id="name" placeholder="山田 太郎">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="age">年齢</label>
+            <input type="number" id="age" placeholder="28">
+          </div>
+          <div class="form-group">
+            <label for="job">現在の職種</label>
+            <input type="text" id="job" placeholder="Webエンジニア">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="career">これまでの経歴</label>
+          <textarea id="career" rows="5" placeholder="例：2020年〇〇大学卒業後、株式会社△△に入社。Web開発部門にてフロントエンド開発を担当..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="skills">スキル・得意領域</label>
+          <textarea id="skills" rows="3" placeholder="例：React / TypeScript / Next.js / UIデザイン / プロジェクトマネジメント"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="strength">あなたの強み</label>
+          <textarea id="strength" rows="3" placeholder="例：課題を構造化して粘り強く解く力。前職では〇〇のプロジェクトで..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="weakness">あなたの弱み</label>
+          <textarea id="weakness" rows="3" placeholder="例：細部にこだわりすぎる傾向。最近は週次レビューで全体最適を意識..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="achievement">最も誇れる成果・エピソード</label>
+          <textarea id="achievement" rows="4" placeholder="例：前職で新規プロダクトの立ち上げに参画。半年でMAU 10,000を達成..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="vision">将来のビジョン</label>
+          <textarea id="vision" rows="3" placeholder="例：プロダクトの企画から開発・運用まで一気通貫で担えるエンジニアになりたい..."></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn btn-primary" id="saveProfile">
+            保存する
+            <span class="arrow">→</span>
+          </button>
+          <a href="company.html" class="btn btn-white">次へ：会社情報</a>
+        </div>
+
+        <p class="form-note" id="profileSavedAt">※ 入力内容はあなたのブラウザにのみ保存され、外部には送信されません。</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© Yell for You — Web面接をAIで完全攻略。</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

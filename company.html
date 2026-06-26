@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>会社情報 | Yell for You</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand">Yell for You <span class="version">1.2</span></a>
+    <button class="btn-login">Login</button>
+  </div>
+  <div class="container">
+    <nav class="pill-nav">
+      <a href="profile.html" class="pill-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+        <span>自分</span>
+      </a>
+      <a href="company.html" class="pill-item active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+        <span>会社</span>
+      </a>
+      <a href="interview.html" class="pill-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M14 20c.3-2.4 2.2-4.2 4.5-4.5"/></svg>
+        <span>面接</span>
+      </a>
+      <a href="interview.html?lang=en" class="pill-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 8h7"/><path d="M8.5 5v3"/><path d="M5 5l3 8c1 2 2 3 4 3"/><path d="M13 20l4-10 4 10"/><path d="M14.5 17h5"/></svg>
+        <span>英語</span>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">STEP 02 / COMPANY</p>
+      <h1>会社/面接の情報を<br>入力する<span class="dot">。</span></h1>
+      <p class="page-lead">志望企業の情報を入力すると、その会社に合わせた回答を生成できます。<br>公式サイトや採用ページから情報を集めて入力しましょう。</p>
+    </div>
+  </section>
+
+  <section class="form-section">
+    <div class="container">
+      <form id="companyForm" class="card-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="companyName">会社名</label>
+            <input type="text" id="companyName" placeholder="株式会社〇〇">
+          </div>
+          <div class="form-group">
+            <label for="industry">業界</label>
+            <input type="text" id="industry" placeholder="IT / SaaS">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="business">事業内容</label>
+          <textarea id="business" rows="4" placeholder="例：BtoB SaaSの開発・運営。中小企業向けの会計クラウドサービスを展開..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="culture">社風・カルチャー</label>
+          <textarea id="culture" rows="3" placeholder="例：オープンでフラットな組織。意思決定が速く、若手にも裁量がある..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="ideal">求める人物像</label>
+          <textarea id="ideal" rows="3" placeholder="例：自走力があり、変化を楽しめる人。チームで成果を出すことに喜びを感じる人..."></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="position">志望ポジション</label>
+            <input type="text" id="position" placeholder="プロダクトマネージャー">
+          </div>
+          <div class="form-group">
+            <label for="course">志望コース / 部門</label>
+            <input type="text" id="course" placeholder="新規事業部">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="motivation">志望動機（メモ）</label>
+          <textarea id="motivation" rows="4" placeholder="例：御社の〇〇という事業に強く共感している。前職で培った△△の経験を活かして..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="interviewType">面接形式</label>
+          <select id="interviewType">
+            <option value="general">一般面接</option>
+            <option value="behavioral">行動面接（STAR）</option>
+            <option value="case">ケース面接</option>
+            <option value="technical">技術面接</option>
+            <option value="final">最終面接</option>
+          </select>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn btn-primary" id="saveCompany">
+            保存する
+            <span class="arrow">→</span>
+          </button>
+          <a href="interview.html" class="btn btn-white">次へ：面接へ進む</a>
+        </div>
+
+        <p class="form-note" id="companySavedAt">※ 入力内容はあなたのブラウザにのみ保存され、外部には送信されません。</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© Yell for You — Web面接をAIで完全攻略。</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

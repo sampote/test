@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yell for You | Web面接をAIで完全攻略</title>
+<meta name="description" content="事前学習した自分の情報、会社名、社風・採用情報、志望コースをもとに、瞬時に面接で回答する文章を生成します。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand">Yell for You <span class="version">1.2</span></a>
+    <button class="btn-login">Login</button>
+  </div>
+  <div class="container">
+    <nav class="pill-nav">
+      <a href="profile.html" class="pill-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+        <span>自分</span>
+      </a>
+      <a href="company.html" class="pill-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+        <span>会社</span>
+      </a>
+      <a href="interview.html" class="pill-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M14 20c.3-2.4 2.2-4.2 4.5-4.5"/></svg>
+        <span>面接</span>
+      </a>
+      <a href="interview.html?lang=en" class="pill-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 8h7"/><path d="M8.5 5v3"/><path d="M5 5l3 8c1 2 2 3 4 3"/><path d="M13 20l4-10 4 10"/><path d="M14.5 17h5"/></svg>
+        <span>英語</span>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container hero-inner">
+      <p class="eyebrow">YELL FOR YOU 1.2</p>
+      <h1 class="hero-title">Web面接を<br>AIで完全攻略<span class="dot">。</span></h1>
+      <p class="hero-lead">
+        事前学習した自分の情報、会社名、社風・採用情報、志望コースをもとに、<br>
+        瞬時に面接で回答する文章を生成します。
+      </p>
+      <p class="hero-note">Chromeのみに対応しています。</p>
+      <div class="hero-cta">
+        <a href="profile.html" class="btn btn-primary">
+          <span class="chrome-icon" aria-hidden="true"></span>
+          Chromeで始める
+          <span class="arrow">→</span>
+        </a>
+        <a href="interview.html" class="btn btn-white">面接へ</a>
+        <a href="interview.html?lang=en" class="btn btn-primary btn-sm">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18"><path d="M5 8h7"/><path d="M8.5 5v3"/><path d="M5 5l3 8c1 2 2 3 4 3"/><path d="M13 20l4-10 4 10"/><path d="M14.5 17h5"/></svg>
+          英語面接
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="steps">
+    <div class="container">
+      <a href="profile.html" class="step-card">
+        <p class="step-label">PROFILE</p>
+        <h2 class="step-title">自分のプロフィールを入力</h2>
+        <div class="step-meta">
+          <span class="step-status" data-step="profile">未入力</span>
+          <span class="step-arrow">→</span>
+        </div>
+      </a>
+
+      <a href="company.html" class="step-card">
+        <p class="step-label">COMPANY</p>
+        <h2 class="step-title">会社/面接の情報を入力する</h2>
+        <div class="step-meta">
+          <span class="step-status" data-step="company">未入力</span>
+          <span class="step-arrow">→</span>
+        </div>
+      </a>
+
+      <a href="interview.html" class="step-card">
+        <p class="step-label">INTERVIEW</p>
+        <h2 class="step-title">面接を録音し回答をOutputする</h2>
+        <div class="step-meta">
+          <span class="step-status" data-step="interview">準備OK</span>
+          <span class="step-arrow">→</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="howto">
+    <div class="container">
+      <p class="eyebrow">HOW IT WORKS</p>
+      <h2 class="section-title">3 ステップで、面接に自信を。</h2>
+      <div class="howto-grid">
+        <div class="howto-item">
+          <div class="howto-num">01</div>
+          <h3>プロフィールを学習</h3>
+          <p>経歴・強み・志望動機などをあらかじめ入力。AI があなた専用の回答パターンを準備します。</p>
+        </div>
+        <div class="howto-item">
+          <div class="howto-num">02</div>
+          <h3>会社情報を学習</h3>
+          <p>志望企業の事業内容や求める人物像を登録。会社ごとに最適化された回答を生成できます。</p>
+        </div>
+        <div class="howto-item">
+          <div class="howto-num">03</div>
+          <h3>面接を録音 → 回答出力</h3>
+          <p>本番中、面接官の質問を録音すると、瞬時に AI が回答の文章を生成して画面に表示します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© Yell for You — Web面接をAIで完全攻略。</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
