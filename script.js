@@ -145,6 +145,22 @@ function initInterviewPage() {
   updateChip('profileChip', profile);
   updateChip('companyChip', company);
 
+  fetch('/api/health').then(r => r.ok ? r.json() : null).then(data => {
+    const chip = document.getElementById('apiChip');
+    if (!chip) return;
+    if (data && data.hasApiKey) {
+      chip.querySelector('.chip-state').textContent = '接続OK';
+      chip.classList.add('ready');
+    } else if (data) {
+      chip.querySelector('.chip-state').textContent = 'APIキー未設定';
+    } else {
+      chip.querySelector('.chip-state').textContent = '静的モード';
+    }
+  }).catch(() => {
+    const chip = document.getElementById('apiChip');
+    if (chip) chip.querySelector('.chip-state').textContent = '静的モード';
+  });
+
   const stopBtn = document.getElementById('stopBtn');
   const manualBtn = document.getElementById('manualBtn');
   const manualInput = document.getElementById('manualInput');
@@ -278,14 +294,44 @@ function initInterviewPage() {
     } catch {}
   });
 
-  function generateAnswer(question) {
-    const result = buildAnswer(question, profile, company, isEnglish);
+  async function generateAnswer(question) {
     detectedQuestion.textContent = question;
-    generatedAnswer.textContent = result.answer;
-    answerTips.innerHTML = result.tips.map(t => `<li>${escapeHtml(t)}</li>`).join('');
+    generatedAnswer.textContent = '🤖 Claude が回答を生成しています...';
+    answerTips.innerHTML = '';
     answerCard.hidden = false;
     answerCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    pushHistory(question);
+
+    try {
+      const res = await fetch('/api/generate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          question,
+          profile,
+          company,
+          lang: isEnglish ? 'en' : 'ja',
+        }),
+      });
+
+      if (!res.ok) {
+        const errBody = await res.json().catch(() => ({}));
+        if (res.status === 503) {
+          throw new Error('サーバーに ANTHROPIC_API_KEY が設定されていません。README の手順で設定してください。');
+        }
+        throw new Error(errBody.error || `生成に失敗しました (HTTP ${res.status})`);
+      }
+
+      const data = await res.json();
+      generatedAnswer.textContent = data.answer;
+      answerTips.innerHTML = (data.tips || []).map(t => `<li>${escapeHtml(t)}</li>`).join('');
+      pushHistory(question);
+    } catch (err) {
+      console.warn('API call failed, falling back to template:', err);
+      const result = buildAnswer(question, profile, company, isEnglish);
+      generatedAnswer.textContent = `⚠ ${err.message}\n\n— 以下はオフライン用テンプレート回答です —\n\n${result.answer}`;
+      answerTips.innerHTML = result.tips.map(t => `<li>${escapeHtml(t)}</li>`).join('');
+      pushHistory(question);
+    }
   }
 
   function pushHistory(q) {
